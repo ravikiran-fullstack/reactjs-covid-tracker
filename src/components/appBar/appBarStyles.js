@@ -30,6 +30,8 @@ export default makeStyles((theme) => ({
     borderTopRightRadius: '0px',
   },
   hidden: {
-    display: 'none',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
 }))

@@ -72,7 +72,7 @@ const AppBarComponent = () => {
               justifyContent: 'space-between',
             }}
           >
-            <div>
+            <div className={classes.hidden}>
               <p>Douglas McGee</p>
             </div>
             <div>
