@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography'
 import useStyles from './dashboardStyles'
 
 const Dashboard = () => {
-  const [globalData, setGlobalData] = useState()
   const [confirmedCases, setConfirmedCases] = useState('')
   const [recoveredCases, setRecoveredCases] = useState('')
   const [numberOfDeaths, setNumberOfDeaths] = useState('')
@@ -19,8 +18,6 @@ const Dashboard = () => {
         throw new Error()
       }
       const data = await response.json()
-      // console.log(data);
-      setGlobalData(data)
       setConfirmedCases(data.confirmed.value)
       setNumberOfDeaths(data.deaths.value)
       setRecoveredCases(data.recovered.value)
@@ -36,25 +33,38 @@ const Dashboard = () => {
   return (
     <Card className={classes.root}>
       <div className={classes.details}>
-        <div>
-          <Typography component='h5' variant='h5' className={classes.heading}>
-            Global Data
-          </Typography>
-        </div>
-        <hr />
         <CardContent className={classes.content}>
-          <Typography variant='subtitle1' color='textSecondary'>
-            <p>Confirmed</p>
-            {confirmedCases}
-          </Typography>
-          <Typography variant='subtitle1' color='textSecondary'>
-            <p>Deaths</p>
-            {numberOfDeaths}
-          </Typography>
-          <Typography variant='subtitle1' color='textSecondary'>
-            <p>Recovered</p>
-            {recoveredCases}
-          </Typography>
+          <div>
+            <Typography component='h5' variant='h5'>
+              Global Data
+            </Typography>
+          </div>
+          <hr />
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
+            <div style={{ margin: '0 10px' }}>
+              <p>Confirmed</p>
+              <Typography variant='subtitle1' color='textSecondary'>
+                {confirmedCases}
+              </Typography>
+            </div>
+            <div style={{ margin: '0 10px' }}>
+              <p>Deaths</p>
+              <Typography variant='subtitle1' color='textSecondary'>
+                {numberOfDeaths}
+              </Typography>
+            </div>
+            <div style={{ margin: '0 10px' }}>
+              <p>Recovered</p>
+              <Typography variant='subtitle1' color='textSecondary'>
+                {recoveredCases}
+              </Typography>
+            </div>
+          </div>
         </CardContent>
       </div>
     </Card>

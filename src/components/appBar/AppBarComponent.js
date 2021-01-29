@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
 import useStyles from './appBarStyles'
 
 import TextField from '@material-ui/core/TextField'
@@ -10,21 +9,9 @@ import Button from '@material-ui/core/Button'
 import { FaSearch } from 'react-icons/fa'
 import { MdMailOutline, MdNotificationsNone } from 'react-icons/md'
 import Divider from '@material-ui/core/Divider'
-import Image from 'material-ui-image'
 
 const AppBarComponent = () => {
   const classes = useStyles()
-  const [image, setImage] = useState('')
-
-  const fetchImage = async () => {
-    const response = await fetch('https://dog.ceo/api/breeds/image/random')
-    const image = await response.blob()
-    const outside = URL.createObjectURL(image)
-    console.log(outside)
-  }
-  useEffect(() => {
-    fetchImage()
-  })
   return (
     <AppBar position='fixed' className={classes.appBar}>
       <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>

@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-
-import useStyles from './chartOneStyles'
+import { Switch, Route } from 'react-router-dom'
 
 import Country from './country/Country'
 import Dashboard from './dashboard/Dashboard'
@@ -10,7 +8,6 @@ import Dashboard from './dashboard/Dashboard'
 const url = 'https://covid19.mathdro.id/api/countries/'
 
 const ChartOne = () => {
-  const classes = useStyles()
   const [countriesData, setCountriesData] = useState([])
   const getAllCountriesData = async () => {
     try {
