@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import CssBaseline from '@material-ui/core/CssBaseline'
+import useStyles from './appStyles'
 
-function App() {
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import AppBarComponent from './components/appBar/AppBarComponent'
+import SideBar from './components/sideBar/SideBar'
+import Home from './components/home/Home'
+
+export default function PermanentDrawerLeft() {
+  const classes = useStyles()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <div className={classes.root}>
+        <CssBaseline />
+        <AppBarComponent></AppBarComponent>
+        <SideBar></SideBar>
+        <Home></Home>
+      </div>
+    </Router>
+  )
 }
-
-export default App;
